@@ -53,7 +53,7 @@ install_mirror_ubuntu: install_mirror_scripts install_httpd_ubuntu install_ftpd_
 	chsh --shell /bin/bash pwxmirror
 	chown -R pwxmirror /home/pwxmirror /var/log/portworx-mirror-server
 	( . ${scriptsdir}/pwx-mirror-config.sh && \
-	  mkdir -p $$mirrordir/misc/centos $$mirrordir/misc/debian $$mirrordir/misc/ubuntu && for subdir in centos debian ubuntu ; do dir=$$mirrordir/misc/$$subdir ; file=$$dir/README.txt ; if [ ! -e "$$file" ] ; then echo "This directory is for unmirrored kernel header packages and support files related to $$subdir." > $$file ; fi ; done && chown -R pwxmirror $$mirrordir )
+	  mkdir -p $$mirrordir/misc/centos $$mirrordir/misc/debian $$mirrordir/misc/opensuse $$mirrordir/misc/ubuntu && for subdir in centos debian opensuse ubuntu ; do dir=$$mirrordir/misc/$$subdir ; file=$$dir/README.txt ; if [ ! -e "$$file" ] ; then echo "This directory is for unmirrored kernel header packages and support files related to $$subdir." > $$file ; fi ; done && chown -R pwxmirror $$mirrordir )
 #	crontab -u pwxmirror ${scriptsdir}/crontab.txt
 #	^^^^^ Do not install the crontab for now, as the current  plan
 #	      is for the cron script to be run by Jensen.
